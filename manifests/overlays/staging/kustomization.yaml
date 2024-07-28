@@ -1,8 +1,9 @@
 resources:
 - ./../../base
 
-namePrefix: staging-
+patchesStrategicMerge:
+- frontend.deployment.yaml
+- backend.deployment.yaml
+- broadcaster.yaml
 
-# images:
-# - name: PROJECT/IMAGE
-#   newName: nginx:1.25.5-alpine
+namePrefix: staging-

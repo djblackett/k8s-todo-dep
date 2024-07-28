@@ -1,10 +1,11 @@
 resources:
-  - ./../../base
-patches:
-  - path: deployment.yaml
+- ./../../base
+- backup.yaml
+
+patchesStrategicMerge:
+- frontend.deployment.yaml
+- backend.deployment.yaml
+- broadcaster.yaml
+
 
 namePrefix: prod-
-
-images:
-  - name: PROJECT/IMAGE
-    newName: djblackett/something
