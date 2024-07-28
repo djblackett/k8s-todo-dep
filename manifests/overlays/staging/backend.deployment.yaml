@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  namespace: development
+  name: todo-go-backend
+spec:
+  template:
+    spec:
+      containers:
+        name: todo-go-backend
+        image: djblackett/backend:v4.0.10
