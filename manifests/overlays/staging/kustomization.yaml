@@ -7,3 +7,16 @@ patchesStrategicMerge:
 - broadcaster.deployment.yaml
 
 namePrefix: staging-
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: backend
+  newName: djblackett/backend
+  newTag: ac35783187a4d4d891bbd94b9140ac1109e4e98b
+- name: broadcaster
+  newName: djblackett/broadcaster
+  newTag: ac35783187a4d4d891bbd94b9140ac1109e4e98b
+- name: frontend
+  newName: djblackett/frontend
+  newTag: ac35783187a4d4d891bbd94b9140ac1109e4e98b
+namespace: staging
