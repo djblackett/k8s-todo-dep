@@ -4,6 +4,6 @@ resources:
 patchesStrategicMerge:
 - frontend.deployment.yaml
 - backend.deployment.yaml
-- broadcaster.yaml
+- broadcaster.deployment.yaml
 
 namePrefix: staging-
