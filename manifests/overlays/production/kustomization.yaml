@@ -1,14 +1,11 @@
 resources:
-- backup.yaml
-- ../../base
+- ./../../base
+- ./backup.yaml
 
+patchesStrategicMerge:
+- frontend.deployment.yaml
+- backend.deployment.yaml
+- broadcaster.deployment.yaml
 
 
 namePrefix: prod-
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-patches:
-- path: frontend.deployment.yaml
-- path: backend.deployment.yaml
-- path: broadcaster.deployment.yaml
-# - path: backup.yaml
