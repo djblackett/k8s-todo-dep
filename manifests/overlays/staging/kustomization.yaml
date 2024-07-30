@@ -1,12 +1,9 @@
 resources:
 - ../../base
-- persistentvolume.yaml
-- persistentvolumeclaim.yaml
 
 patchesStrategicMerge:
 - broadcaster.deployment.yaml
 
-# namePrefix: staging-
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
