@@ -6,7 +6,7 @@ patchesStrategicMerge:
 - backend.deployment.yaml
 - broadcaster.deployment.yaml
 
-namePrefix: staging-
+# namePrefix: staging-
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
