@@ -9,3 +9,16 @@ patchesStrategicMerge:
 
 
 namePrefix: prod-
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: backend
+  newName: djblackett/backend
+  newTag: dc32ef38f2c69ef71ea05b6207ef131441b875a8
+- name: broadcaster
+  newName: djblackett/broadcaster
+  newTag: dc32ef38f2c69ef71ea05b6207ef131441b875a8
+- name: frontend
+  newName: djblackett/frontend
+  newTag: dc32ef38f2c69ef71ea05b6207ef131441b875a8
+namespace: production
