@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: my-example-pv # this is the name of the persisten volume we are claiming
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
