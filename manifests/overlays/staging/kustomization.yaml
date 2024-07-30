@@ -12,11 +12,11 @@ kind: Kustomization
 images:
 - name: backend
   newName: djblackett/backend
-  newTag: dc32ef38f2c69ef71ea05b6207ef131441b875a8
+  newTag: 62ff45eb3dc45b58f84c2bc45bf7bb32e0db455c
 - name: broadcaster
   newName: djblackett/broadcaster
-  newTag: dc32ef38f2c69ef71ea05b6207ef131441b875a8
+  newTag: 62ff45eb3dc45b58f84c2bc45bf7bb32e0db455c
 - name: frontend
   newName: djblackett/frontend
-  newTag: dc32ef38f2c69ef71ea05b6207ef131441b875a8
+  newTag: 62ff45eb3dc45b58f84c2bc45bf7bb32e0db455c
 namespace: staging
