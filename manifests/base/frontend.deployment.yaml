@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: todo-go-frontend
-        image: djblackett/frontend:v4.02.8
+        image: djblackett/frontend
         resources:
           requests:
             cpu: "5m"

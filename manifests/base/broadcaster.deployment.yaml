@@ -18,8 +18,8 @@ spec:
         app: broadcaster
     spec:
       containers:
-      - name: broadcaster
-        image: djblackett/broadcaster:v0.03
+      - name: todo-go-broadcaster
+        image: djblackett/broadcaster
         ports:
         - containerPort: 8500
         env:
