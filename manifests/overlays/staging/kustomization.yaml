@@ -1,10 +1,5 @@
 resources:
 - ../../base
-<<<<<<< HEAD
-=======
-# - persistentvolume.yaml
-# - persistentvolumeclaim.yaml
->>>>>>> 6de7f740b8d96c1c9fe7a3e3b8ffb86a31d19813
 
 patchesStrategicMerge:
 - broadcaster.deployment.yaml
