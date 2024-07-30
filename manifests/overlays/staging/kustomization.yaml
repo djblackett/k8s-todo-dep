@@ -1,5 +1,7 @@
 resources:
 - ../../base
+- persistentvolume.yaml
+- persistentvolumeclaim.yaml
 
 patchesStrategicMerge:
 - broadcaster.deployment.yaml
