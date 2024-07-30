@@ -6,10 +6,10 @@ kind: Kustomization
 images:
 - name: todo-go-backend
   newName: djblackett/backend
-  newTag: 43142f2d766ffea81651d70576590a25df47d8eb
+  newTag: c2d6701cc1e6d559b8f0f3a22d97b0a51e5ea4d0
 - name: todo-go-broadcaster
   newName: djblackett/broadcaster
-  newTag: 43142f2d766ffea81651d70576590a25df47d8eb
+  newTag: c2d6701cc1e6d559b8f0f3a22d97b0a51e5ea4d0
 - name: todo-go-frontend
   newName: djblackett/frontend
-  newTag: 43142f2d766ffea81651d70576590a25df47d8eb
+  newTag: c2d6701cc1e6d559b8f0f3a22d97b0a51e5ea4d0
