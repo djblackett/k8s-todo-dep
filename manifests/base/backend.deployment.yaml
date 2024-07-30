@@ -55,7 +55,7 @@ spec:
 
         env:
         - name: PORT
-          value: ":8000"
+          value: "8000"
         - name: HOST
           value: postgres-svc
         - name: REACT_APP_URL
@@ -86,4 +86,4 @@ spec:
   ports:
   - port: 2345
     protocol: TCP
-    targetPort: 8000 #
+    targetPort: 8000
