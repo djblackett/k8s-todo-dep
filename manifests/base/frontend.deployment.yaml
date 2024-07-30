@@ -39,7 +39,7 @@ spec:
             memory: "20Mi"
         env:
         - name: PORT
-          value: ":8080"
+          value: "8080"
         - name: API_URL
           value: "todo-go-backend.default.svc.luster.local"
         - name: BACKEND
