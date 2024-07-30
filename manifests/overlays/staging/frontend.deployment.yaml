@@ -1,6 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
+  namespace: development
   name: todo-go-frontend
 spec:
   template:
