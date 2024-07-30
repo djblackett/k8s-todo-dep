@@ -23,6 +23,8 @@ spec:
         ports:
         - containerPort: 8500
         env:
+        - name: PORT
+          value: "8500"
         - name: NATS_URL
           value: my-nats.development.svc.cluster.local:4222
         - name: WEBHOOK_URL
