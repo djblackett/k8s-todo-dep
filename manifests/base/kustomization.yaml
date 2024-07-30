@@ -8,5 +8,5 @@ resources:
 - reminder.job.yaml
 - web-configmap.yaml
 - postgres-init-config.yaml
-- persistantvolume.yaml
-- persistantvolumeclaim.yaml
+- persistentvolume.yaml
+- persistentvolumeclaim.yaml
