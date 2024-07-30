@@ -1,3 +1,15 @@
 resources:
 - ./overlays/staging
 - ./overlays/production
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: todo-go-backend
+  newName: djblackett/backend
+  newTag: 43142f2d766ffea81651d70576590a25df47d8eb
+- name: todo-go-broadcaster
+  newName: djblackett/broadcaster
+  newTag: 43142f2d766ffea81651d70576590a25df47d8eb
+- name: todo-go-frontend
+  newName: djblackett/frontend
+  newTag: 43142f2d766ffea81651d70576590a25df47d8eb
