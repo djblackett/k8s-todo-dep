@@ -6,5 +6,4 @@ resources:
 - ingress.yaml
 - postgres-statefulset.yaml
 - reminder.job.yaml
-- web-configmap.yaml
 - postgres-init-config.yaml

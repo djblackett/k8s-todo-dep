@@ -8,17 +8,16 @@ spec:
   strategy:
     canary:
       steps:
-      - setWeight: 100
-  #       - setWeight: 25
-  #       - pause:
-  #           duration: 30s
-  #       - setWeight: 50
-  #       - pause:
-  #           duration: 30s
-  #       - analysis:
-  #           templates:
-  #             - templateName: cpu-usage
-  #               clusterScope: false
+      - setWeight: 25
+      - pause:
+          duration: 30s
+      - setWeight: 50
+      - pause:
+          duration: 30s
+          # - analysis:
+          #     templates:
+          #     - templateName: cpu-usage
+          #       clusterScope: false
   selector:
     matchLabels:
       app: todo-go-frontend
@@ -40,16 +39,10 @@ spec:
         env:
         - name: PORT
           value: "8080"
-        - name: API_URL
-          value: "todo-go-backend.default.svc.luster.local"
         - name: BACKEND
           value: todo-go-backend-svc:2345
 
         volumeMounts:
-        #override config.js file
-        - name: config
-          mountPath: "/build/config.js"
-          subPath: "config.js"
         readinessProbe:
           initialDelaySeconds: 10 # Initial delay until the readiness is tested
           periodSeconds: 5 # How often to test
