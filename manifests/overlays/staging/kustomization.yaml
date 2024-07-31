@@ -9,13 +9,13 @@ kind: Kustomization
 
 images:
 - name: PROJECT/BACKEND
-  newName: todo-go-backend
+  newName: djblackett/todo-go-backend
   newTag: a8e25dae48776f957fd82540a809d044d6b064ee
 - name: PROJECT/BROADCASTER
-  newName: todo-go-broadcaster
+  newName: djblackett/todo-go-broadcaster
   newTag: a8e25dae48776f957fd82540a809d044d6b064ee
 - name: PROJECT/FRONTEND
-  newName: todo-go-frontend
+  newName: djblackett/todo-go-frontend
   newTag: a8e25dae48776f957fd82540a809d044d6b064ee
 
 namespace: staging
