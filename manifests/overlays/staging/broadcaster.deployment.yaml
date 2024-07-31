@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: todo-go-broadcaster
-        image: djblackett/todo-go-broadcaster
+        image: PROJECT/BROADCASTER
         env:
         - name: ENVIRONMENT
           value: staging
