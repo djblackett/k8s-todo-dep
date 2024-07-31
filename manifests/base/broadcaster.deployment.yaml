@@ -26,7 +26,7 @@ spec:
         - name: PORT
           value: "8500"
         - name: NATS_URL
-          value: my-nats.development.svc.cluster.local:4222
+          value: my-nats.default.svc.cluster.local:4222
         - name: WEBHOOK_URL
           valueFrom:
             secretKeyRef:
