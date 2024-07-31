@@ -8,13 +8,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 images:
-- name: todo-go-backend
-  newName: djblackett/backend
+- name: PROJECT/BACKEND
+  newName: todo-go-backend
   newTag: a8e25dae48776f957fd82540a809d044d6b064ee
-- name: todo-go-broadcaster
-  newName: djblackett/broadcaster
+- name: PROJECT/BROADCASTER
+  newName: todo-go-broadcaster
   newTag: a8e25dae48776f957fd82540a809d044d6b064ee
-- name: todo-go-frontend
-  newName: djblackett/frontend
+- name: PROJECT/FRONTEND
+  newName: todo-go-frontend
   newTag: a8e25dae48776f957fd82540a809d044d6b064ee
+
 namespace: staging
