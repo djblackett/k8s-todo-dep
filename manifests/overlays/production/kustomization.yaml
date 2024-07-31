@@ -1,12 +1,8 @@
 resources:
 - ../../base
 - ./backup.yaml
-# - persistentvolume.yaml
-# - persistentvolumeclaim.yaml
 
 patchesStrategicMerge:
-- frontend.deployment.yaml
-- backend.deployment.yaml
 - broadcaster.deployment.yaml
 
 
@@ -14,13 +10,14 @@ patchesStrategicMerge:
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
-- name: backend
-  newName: djblackett/backend
-  newTag: 62ff45eb3dc45b58f84c2bc45bf7bb32e0db455c
-- name: broadcaster
-  newName: djblackett/broadcaster
-  newTag: 62ff45eb3dc45b58f84c2bc45bf7bb32e0db455c
-- name: frontend
-  newName: djblackett/frontend
-  newTag: 62ff45eb3dc45b58f84c2bc45bf7bb32e0db455c
+- name: PROJECT/BACKEND
+  newName: djblackett/todo-go-backend
+  newTag: 5b2446b7cc0e43785e987a63de0714e09ffc1711
+- name: PROJECT/BROADCASTER
+  newName: djblackett/todo-go-broadcaster
+  newTag: 5b2446b7cc0e43785e987a63de0714e09ffc1711
+- name: PROJECT/FRONTEND
+  newName: djblackett/todo-go-frontend
+  newTag: 5b2446b7cc0e43785e987a63de0714e09ffc1711
+
 namespace: production
