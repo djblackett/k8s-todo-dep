@@ -13,14 +13,14 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: todo-go-frontend-svc.production.svc.cluster.local
+            name: todo-go-frontend-svc
             port:
               number: 2345
       - path: /todos
         pathType: Prefix
         backend:
           service:
-            name: todo-go-backend-svc.production.svc.cluster.local
+            name: todo-go-backend-svc
             port:
               number: 2345
   - host: staging.localhost
@@ -30,13 +30,13 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: todo-go-frontend-svc.staging.svc.cluster.local
+            name: todo-go-frontend-svc
             port:
               number: 2345
       - path: /todos
         pathType: Prefix
         backend:
           service:
-            name: todo-go-backend-svc.staging.svc.cluster.local
+            name: todo-go-backend-svc
             port:
               number: 2345
