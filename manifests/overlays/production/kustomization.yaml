@@ -1,6 +1,7 @@
 resources:
 - ../../base
 - ./backup.yaml
+- ingress.yaml
 
 patchesStrategicMerge:
 - broadcaster.deployment.yaml

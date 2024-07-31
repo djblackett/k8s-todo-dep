@@ -3,7 +3,7 @@ resources:
 - backend.deployment.yaml
 - analysistemplate.yaml
 - broadcaster.deployment.yaml
-- ingress.yaml
+# - ingress.yaml
 - postgres-statefulset.yaml
 - reminder.job.yaml
 - postgres-init-config.yaml
