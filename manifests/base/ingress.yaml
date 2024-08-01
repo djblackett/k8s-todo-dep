@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-go-ingress
+  namespace: default
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /staging(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: todo-go-frontend-svc
+            namespace: staging
+            port:
+              number: 80
+      - path: /staging/backend(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: todo-go-backend-svc
+            namespace: staging
+            port:
+              number: 80
+      - path: /production(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: todo-go-frontend-svc
+            namespace: production
+            port:
+              number: 80
+      - path: /production/backend(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: todo-go-backend-svc
+            namespace: production
+            port:
+              number: 80
