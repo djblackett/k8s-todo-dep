@@ -2,41 +2,22 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: todo-go-ingress
-  namespace: default
 spec:
+  ingressClassName: nginx
   rules:
-  - host: localhost
-    http:
+  - http:
       paths:
-      - path: /staging
-        pathType: ImplementationSpecific
+      - path: /
+        pathType: Prefix
         backend:
           service:
             name: todo-go-frontend-svc
-            namespace: staging
             port:
               number: 2345
-      - path: /staging/todos
-        pathType: ImplementationSpecific
+      - path: /todos
+        pathType: Prefix
         backend:
           service:
             name: todo-go-backend-svc
-            namespace: staging
-            port:
-              number: 2345
-      - path: /production
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: todo-go-frontend-svc
-            namespace: production
-            port:
-              number: 2345
-      - path: /production/todos
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: todo-go-backend-svc
-            namespace: production
             port:
               number: 2345
