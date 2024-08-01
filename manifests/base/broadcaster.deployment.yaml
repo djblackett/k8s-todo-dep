@@ -4,7 +4,8 @@ metadata:
   namespace: development
   name: broadcaster
 spec:
-  replicas: 6
+  replicas:
+  revisionHistoryLimit: 2
   strategy:
     canary:
       steps:

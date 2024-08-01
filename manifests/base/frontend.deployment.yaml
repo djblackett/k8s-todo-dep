@@ -5,6 +5,7 @@ metadata:
   name: todo-go-frontend
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
   strategy:
     canary:
       steps:
