@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: development
   name: broadcaster
 spec:
   replicas: 6
