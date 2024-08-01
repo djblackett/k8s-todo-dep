@@ -8,35 +8,35 @@ spec:
   - host: localhost
     http:
       paths:
-      - path: /staging(/|$)(.*)
+      - path: /staging
         pathType: ImplementationSpecific
         backend:
           service:
             name: todo-go-frontend-svc
             namespace: staging
             port:
-              number: 80
-      - path: /staging/backend(/|$)(.*)
+              number: 2345
+      - path: /staging/todos
         pathType: ImplementationSpecific
         backend:
           service:
             name: todo-go-backend-svc
             namespace: staging
             port:
-              number: 80
-      - path: /production(/|$)(.*)
+              number: 2345
+      - path: /production
         pathType: ImplementationSpecific
         backend:
           service:
             name: todo-go-frontend-svc
             namespace: production
             port:
-              number: 80
-      - path: /production/backend(/|$)(.*)
+              number: 2345
+      - path: /production/todos
         pathType: ImplementationSpecific
         backend:
           service:
             name: todo-go-backend-svc
             namespace: production
             port:
-              number: 80
+              number: 2345
