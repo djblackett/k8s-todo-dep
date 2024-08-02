@@ -70,7 +70,7 @@ kind: Service
 metadata:
   name: todo-go-frontend-svc
 spec:
-  type: NodePort # switch to ClusterIp for local k3d
+  type: ClusterIP # switch to ClusterIp for local k3d
   selector:
     app: todo-go-frontend # This is the app as declared in the deployment.
   ports:
