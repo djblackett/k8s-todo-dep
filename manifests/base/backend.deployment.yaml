@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: todo-go-backend
+  annotations:
+    linkerd.io/inject: enabled
 spec:
   replicas: 1
   revisionHistoryLimit: 2

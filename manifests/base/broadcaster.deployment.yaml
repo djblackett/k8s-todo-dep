@@ -1,7 +1,9 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: broadcaster
+  annotations:
+    linkerd.io/inject: enabled
 spec:
   replicas: 1
   revisionHistoryLimit: 2
