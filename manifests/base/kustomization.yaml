@@ -7,3 +7,4 @@ resources:
 - postgres-statefulset.yaml
 - reminder.job.yaml
 - postgres-init-config.yaml
+- linkerd.yaml
