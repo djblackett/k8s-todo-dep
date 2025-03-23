@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: broadcaster
   annotations:
@@ -10,7 +10,7 @@ spec:
   strategy:
     canary:
       steps:
-      - setWeight: 100
+        - setWeight: 100
   selector:
     matchLabels:
       app: broadcaster
@@ -20,40 +20,41 @@ spec:
         app: broadcaster
     spec:
       containers:
-      - name: todo-go-broadcaster
-        image: PROJECT/BROADCASTER
-        ports:
-        - containerPort: 8500
-        env:
-        - name: PORT
-          value: "8500"
-        - name: NATS_URL
-          value: my-nats.default.svc.cluster.local:4222
-        - name: WEBHOOK_URL
-          valueFrom:
-            secretKeyRef:
-              name: webhook-url
-              key: WEBHOOK_URL
-        resources:
-          requests:
-            cpu: "50m"
-            memory: "50Mi"
-          limits:
-            cpu: "200m"
-            memory: "200Mi"
-        readinessProbe:
-          initialDelaySeconds: 10 # Initial delay until the readiness is tested
-          periodSeconds: 5 # How often to test
-          httpGet:
-            path: /healthz
-            port: 8500
-        livenessProbe:
-          initialDelaySeconds: 20 # Initial delay until the liveness is tested
-          periodSeconds: 5 # How often to test
-          httpGet:
-            path: /healthz
-            port: 8500
-
+        - name: todo-go-broadcaster
+          image: PROJECT/BROADCASTER
+          ports:
+            - containerPort: 8500
+          env:
+            - name: PORT
+              value: "8500"
+            - name: NATS_URL
+              value: nats.default.svc.cluster.local:4222
+            - name: GIN_MODE
+              value: release
+            - name: WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: webhook-url
+                  key: WEBHOOK_URL
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "50Mi"
+            limits:
+              cpu: "200m"
+              memory: "200Mi"
+          readinessProbe:
+            initialDelaySeconds: 10 # Initial delay until the readiness is tested
+            periodSeconds: 5 # How often to test
+            httpGet:
+              path: /healthz
+              port: 8500
+          livenessProbe:
+            initialDelaySeconds: 20 # Initial delay until the liveness is tested
+            periodSeconds: 5 # How often to test
+            httpGet:
+              path: /healthz
+              port: 8500
 ---
 apiVersion: v1
 kind: Service
@@ -64,6 +65,6 @@ spec:
   selector:
     app: broadcaster
   ports:
-  - port: 2345
-    protocol: TCP
-    targetPort: 8500
+    - port: 2345
+      protocol: TCP
+      targetPort: 8500
