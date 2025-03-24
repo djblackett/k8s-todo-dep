@@ -5,9 +5,10 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    canary:
-      steps:
-      - setWeight: 100
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: broadcaster
@@ -17,8 +18,8 @@ spec:
         app: broadcaster
     spec:
       containers:
-      - name: todo-go-broadcaster
-        image: PROJECT/BROADCASTER
-        env:
-        - name: ENVIRONMENT
-          value: staging
+        - name: todo-go-broadcaster
+          image: PROJECT/BROADCASTER
+          env:
+            - name: ENVIRONMENT
+              value: staging
