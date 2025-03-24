@@ -25,9 +25,12 @@ TODO - get sample port forward command
 
 ## Install NATS
 
+Please install on default namespace
+
 ```bash
+kubens default
 helm repo add nats https://nats-io.github.io/k8s/helm/charts/
-helm install nats nats/nats
+helm install --namespace=default nats nats/nats
 ```
 
 ## Install Argo Rollouts
@@ -50,3 +53,9 @@ helm repo update
 helm install nginx-ingress ingress-nginx/ingress-nginx
 
 ## Install Linkerd
+
+## Building with Kustomize
+
+```bash
+kustomize build manifests/overlays/production | kubectl apply -f -
+```
