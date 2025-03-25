@@ -35,13 +35,13 @@ spec:
             initialDelaySeconds: 10 # Initial delay until the readiness is tested
             periodSeconds: 5 # How often to test
             httpGet:
-              path: /healthz
+              path: /api/healthz
               port: 8080
           livenessProbe:
             initialDelaySeconds: 20 # Initial delay until the liveness is tested
             periodSeconds: 5 # How often to test
             httpGet:
-              path: /healthz
+              path: /api/healthz
               port: 8080
       volumes:
         - name: config
