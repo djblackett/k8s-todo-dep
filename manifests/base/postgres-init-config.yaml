@@ -6,11 +6,10 @@ data:
   init.sql: |
     CREATE DATABASE todos;
     CREATE TABLE todos(
-      id INT,
+      id VARCHAR(255) PRIMARY KEY,
       text VARCHAR(255),
       completed BOOLEAN
     );
-
   custom-entrypoint.sh: |
     #!/bin/bash
     set -e
