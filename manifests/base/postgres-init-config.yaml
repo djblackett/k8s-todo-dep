@@ -8,7 +8,8 @@ data:
     CREATE TABLE todos(
       id VARCHAR(255) PRIMARY KEY,
       text VARCHAR(255),
-      completed BOOLEAN
+      completed BOOLEAN,
+      order_index INT
     );
   custom-entrypoint.sh: |
     #!/bin/bash
