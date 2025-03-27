@@ -10,12 +10,12 @@ kind: Kustomization
 images:
 - name: PROJECT/BACKEND
   newName: djblackett/todo-go-backend
-  newTag: 0e30fb7b0b9da63fe92d7922e2d5d6a0721feb90
+  newTag: 6990b124e8e7d4ece9adf26ecc19d04c6e46dad9
 - name: PROJECT/BROADCASTER
   newName: djblackett/todo-go-broadcaster
-  newTag: 0e30fb7b0b9da63fe92d7922e2d5d6a0721feb90
+  newTag: 6990b124e8e7d4ece9adf26ecc19d04c6e46dad9
 - name: PROJECT/FRONTEND
   newName: djblackett/todo-go-frontend
-  newTag: 0e30fb7b0b9da63fe92d7922e2d5d6a0721feb90
+  newTag: 6990b124e8e7d4ece9adf26ecc19d04c6e46dad9
 
 namespace: staging
