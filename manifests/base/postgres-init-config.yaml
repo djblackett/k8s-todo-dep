@@ -11,25 +11,3 @@ data:
       completed BOOLEAN,
       order_index INT
     );
-  custom-entrypoint.sh: |
-    #!/bin/bash
-    set -e
-
-
-    # Start the PostgreSQL server
-    docker-entrypoint.sh postgres &
-
-    # Wait for the server to start
-    until pg_isready -h localhost -p 5432; do
-      echo "Waiting for PostgreSQL to start..."
-      sleep 2
-    done
-
-    if [ "$(psql -U postgres -tc "SELECT 1 FROM pg_database WHERE datname = 'todos'")" == "" ]; then
-      psql -U postgres -f /docker-entrypoint-initdb.d/init.sql
-    else
-      echo "Database already initialized. Skipping initialization script."
-    fi
-
-    # Wait for the PostgreSQL process to end
-    wait

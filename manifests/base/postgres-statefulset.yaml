@@ -16,38 +16,47 @@ spec:
         app: postgres
     spec:
       containers:
-      - name: postgres
-        image: postgres:13.0
-        command: ["/bin/bash", "/docker-entrypoint-initdb.d/custom-entrypoint.sh"]
-        ports:
         - name: postgres
-          containerPort: 5432
-        env:
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgres-password
-              key: PASSWORD
-        - name: POSTGRES_USER
-          value: postgres
-        volumeMounts:
-        - name: data
-          mountPath: /var/lib/postgresql/data
-          subPath: postgres
-        - name: init-script
-          mountPath: /docker-entrypoint-initdb.d
+          image: postgres:13.0
+          ports:
+            - name: postgres
+              containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-password
+                  key: PASSWORD
+            - name: POSTGRES_USER
+              value: postgres
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+              subPath: postgres
+            - name: init-script
+              mountPath: /docker-entrypoint-initdb.d
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
       volumes:
-      - name: init-script
-        configMap:
-          name: postgres-init-config
+        - name: init-script
+          configMap:
+            name: postgres-init-config
   volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 100Mi
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 100Mi
 ---
 apiVersion: v1
 kind: Service
@@ -57,8 +66,8 @@ metadata:
     app: postgres
 spec:
   ports:
-  - port: 5432
-    name: web
+    - port: 5432
+      name: web
   clusterIP: None
   selector:
     app: postgres
